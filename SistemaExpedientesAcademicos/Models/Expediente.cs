@@ -13,9 +13,9 @@
         public string Observaciones { get; set; }
 
         // este conecta el expediente con un alumno
-        public Alumno Alumno { get; set; }
+        public Alumno? Alumno { get; set; }
 
         // este conecta el expediente con una materia
-        public Materia Materia { get; set; }
+        public Materia? Materia { get; set; }
     }
 }

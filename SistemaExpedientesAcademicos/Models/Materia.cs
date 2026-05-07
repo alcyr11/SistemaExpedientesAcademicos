@@ -11,6 +11,6 @@ namespace SistemaExpedientesAcademicos.Models
         public string Docente { get; set; }
 
         // aquí guardo todos los expedientes donde aparece esta materia
-        public List<Expediente> Expedientes { get; set; }
+        public List<Expediente> Expedientes { get; set; } = new List<Expediente>();
     }
 }

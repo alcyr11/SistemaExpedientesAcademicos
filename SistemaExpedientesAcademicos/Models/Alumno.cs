@@ -16,6 +16,6 @@ namespace SistemaExpedientesAcademicos.Models
         public string Grado { get; set; }
 
         // aquí guardo todos los expedientes que tiene este alumno
-        public List<Expediente> Expedientes { get; set; }
+        public List<Expediente> Expedientes { get; set; } = new List<Expediente>();
     }
 }
