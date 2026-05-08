@@ -49,8 +49,8 @@ namespace SistemaExpedientesAcademicos.Controllers
         // GET: Expedientes/Create
         public IActionResult Create()
         {
-            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "AlumnoId");
-            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "MateriaId");
+            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "Nombre");
+            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "NombreMateria");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace SistemaExpedientesAcademicos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "AlumnoId", expediente.AlumnoId);
-            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "MateriaId", expediente.MateriaId);
+            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "Nombre", expediente.AlumnoId);
+            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "NombreMateria", expediente.MateriaId);
             return View(expediente);
         }
 
@@ -85,8 +85,8 @@ namespace SistemaExpedientesAcademicos.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "AlumnoId", expediente.AlumnoId);
-            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "MateriaId", expediente.MateriaId);
+            ViewData["AlumnoId"] = new SelectList(_context.Alumnos, "AlumnoId", "Nombre");
+            ViewData["MateriaId"] = new SelectList(_context.Materias, "MateriaId", "NombreMateria");
             return View(expediente);
         }
 
