@@ -25,6 +25,7 @@
                 @Html.DisplayNameFor(model => model.Grado)
             </th>
             <th></th>
+            <th>Promedio</th>
         </tr>
     </thead>
     <tbody>
@@ -37,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                    @item.FechaNacimiento.ToString("dd/MM/yyyy")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Grado)
@@ -47,6 +48,11 @@
                 <a asp-action="Details" asp-route-id="@item.AlumnoId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.AlumnoId">Delete</a>
             </td>
+                <td>
+                    @(item.Expedientes.Any()
+                                    ? item.Expedientes.Average(e => e.NotaFinal).ToString("0.00")
+                                    : "Sin notas")
+                </td>
         </tr>
 }
     </tbody>

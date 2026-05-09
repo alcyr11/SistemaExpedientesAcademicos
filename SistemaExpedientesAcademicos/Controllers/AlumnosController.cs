@@ -22,7 +22,11 @@ namespace SistemaExpedientesAcademicos.Controllers
         // GET: Alumnos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Alumnos.ToListAsync());
+            var alumnos = await _context.Alumnos
+      .Include(a => a.Expedientes)
+      .ToListAsync();
+
+            return View(alumnos);
         }
 
         // GET: Alumnos/Details/5

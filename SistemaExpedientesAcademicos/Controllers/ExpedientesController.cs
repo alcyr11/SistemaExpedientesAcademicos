@@ -165,6 +165,23 @@ namespace SistemaExpedientesAcademicos.Controllers
         private bool ExpedienteExists(int id)
         {
             return _context.Expedientes.Any(e => e.ExpedienteId == id);
+       }
+        public IActionResult Estadisticas()
+        {
+            var promedios = _context.Expedientes
+                .Include(e => e.Alumno)
+                .GroupBy(e => e.Alumno.Nombre)
+                .Select(g => new
+                {
+                    Alumno = g.Key,
+                    Promedio = g.Average(e => e.NotaFinal)
+                })
+                .ToList();
+
+            ViewBag.Alumnos = promedios.Select(p => p.Alumno).ToList();
+            ViewBag.Promedios = promedios.Select(p => p.Promedio).ToList();
+
+            return View();
         }
     }
 }
