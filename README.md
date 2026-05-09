@@ -82,9 +82,6 @@ Abrir la Consola del Administrador de Paquetes y ejecutar:
 
 ```powershell
 Update-Database
-
-```bash
-git clone URL_DEL_REPOSITORIO
 ```
 ### 5. Ejecutar el sistema
 
